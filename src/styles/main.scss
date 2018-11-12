@@ -1,0 +1,15 @@
+@import 'variables.scss';
+@import 'mixins/text-shadow.scss';
+@import 'animations/animations.scss';
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: $white;
+  background-color: $black;
+}
+
+h1 {
+  text-align: center;
+  animation: animate-text 3.5s;
+  font-size: 64px;
+}

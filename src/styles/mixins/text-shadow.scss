@@ -1,0 +1,10 @@
+@function text-shadow($length, $angle) {
+  $val: 0px 0px transparent;
+
+  @for $i from 1 through $length {
+    $val: #{$val},
+    #{$i}px #{$i*$angle}px #aaa;
+  }
+
+  @return $val;
+}

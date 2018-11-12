@@ -1,0 +1,37 @@
+@keyframes animate-text {
+  0% {
+    text-shadow: text-shadow(100, 1);
+    color: #f3f3f3;
+    transform: scale(1.5, 1.5);
+  }
+
+  10% {
+    text-shadow: text-shadow(100, 1.5);
+    color: #f3f3f3;
+    transform: scale(1.5, 1.5);
+  }
+
+  15% {
+    color: #f3f3f3;
+  }
+
+  20% {
+    color: #e90418;
+    text-shadow: none;
+    transform: scale(1.1, 1.1);
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+    color: #e90418;
+    transform: scale(0.85, 0.9);
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
