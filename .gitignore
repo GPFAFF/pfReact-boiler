@@ -1,6 +1,7 @@
 node_modules
 
 dist/
+src/bundle.js
 
 yarn-error.log
 
