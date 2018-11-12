@@ -30,7 +30,7 @@ const jestConfig = `"license": "ISC",
     "transform": {
       "^.+\\\\.js$": "babel-jest",
       "^.+\\\\.jsx$": "babel-jest",
-      "\\\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/tests/__mock__/fileTransformer.js"
+      "\\\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/tests/*"
     }
   }`;
 
@@ -71,7 +71,7 @@ exec(
       fs.writeFile(packageJSON, data, err2 => err2 || true);
     });
 
-    const filesToCopy = ['README.md', 'webpack.common.js', 'webpack.dev.js', 'webpack.prod.js', '.eslintrc', '.eslintignore', '.babelrc', '.gitignore'];
+    const filesToCopy = ['README.md', 'webpack.common.js', 'webpack.dev.js', 'webpack.prod.js', '.eslintrc', '.eslintignore', 'index.html', '.babelrc', '.gitignore'];
 
     for (let i = 0; i < filesToCopy.length; i += 1) {
       fs
@@ -120,7 +120,7 @@ exec(
           .copy(path.join(__dirname, '../src'), `${process.argv[2]}/src`)
           .then(() => console.log(`All done!\nYour project is now ready to rock in ${
             process.argv[2]
-          } folder, refer to the README for the project structure.\n👾💻👾💻👾💻👾💻👾💻 away!!`))
+          } folder.\n👾💻👾💻👾💻👾💻👾💻 away!!`))
           .catch(err => console.error(err));
       },
     );
