@@ -1,6 +1,6 @@
 {
   "name": "pfreact-boiler",
-  "version": "0.0.92",
+  "version": "1.0.0",
   "description": "pfReact BoilerPlate",
   "main": "index.js",
   "scripts": {
