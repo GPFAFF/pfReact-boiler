@@ -71,7 +71,7 @@ exec(
       fs.writeFile(packageJSON, data, err2 => err2 || true);
     });
 
-    const filesToCopy = ['README.md', 'webpack.common.js', 'webpack.dev.js', 'webpack.prod.js', '.eslintrc', '.babelrc'];
+    const filesToCopy = ['README.md', 'webpack.common.js', 'webpack.dev.js', 'webpack.prod.js', '.eslintrc', '.babelrc', '.gitignore'];
 
     for (let i = 0; i < filesToCopy.length; i += 1) {
       fs
