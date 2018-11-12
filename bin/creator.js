@@ -9,9 +9,12 @@ const {
 
 const packageJson = require('../package.json');
 
-const scripts = `"start": "cross-env NODE_ENV=development webpack-dev-server -d",
-    "build": "cross-env NODE_ENV=production webpack -p",
-    "test": "jest"`;
+const scripts = `"build": "webpack --config webpack.prod.js",
+    "dev": "webpack-dev-server --config webpack.dev.js",
+    "test": "jest ./test",
+    "lint": "eslint src/**/*.js src/**/*.jsx",
+    "prepublish": "yarn run lint && yarn run test && yarn run build",
+    "start": "npm-run-all lint test dev"`;
 
 const jestConfig = `"license": "ISC",
   "jest": {
@@ -25,9 +28,6 @@ const jestConfig = `"license": "ISC",
     "setupFiles": [
       "<rootDir>/src/tests/setup.js"
     ],
-    "moduleNameMapper": {
-      "\\\\.(css|styl|less|sass|scss)$": "identity-obj-proxy"
-    },
     "transform": {
       "^.+\\\\.js$": "babel-jest",
       "^.+\\\\.jsx$": "babel-jest",
@@ -50,14 +50,14 @@ const getDeps = deps => Object.entries(deps)
   // exclude the plugin only used in this file, nor relevant to the boilerplate
   .replace(/fs-extra[^\s]+/g, '');
 
-console.log('Initializing project..');
+console.log('⚡️⚡️⚡️⚡️⚡️ Initializing project ⚡️⚡️⚡️⚡️⚡️');
 
 // create folder and initialize npm
 exec(
   `mkdir ${process.argv[2]} && cd ${process.argv[2]} && npm init -f`,
   (initErr, initStdout, initStderr) => {
     if (initErr) {
-      console.error(`Everything was fine, then it wasn't:
+      console.error(`💩💩💩💩💩💩💩💩💩💩:
     ${initErr}`);
       return;
     }
@@ -81,7 +81,7 @@ exec(
     }
 
     // npm will remove the .gitignore file when the package is installed, therefore it cannot be copied
-    // locally and needs to be downloaded. See https://github.com/Kornil/simple-react-app/issues/12
+    // locally and needs to be downloaded.
     https.get(
       'https://raw.githubusercontent.com/gpfaff/pfreact-boiler/master/.gitignore',
       (res) => {
@@ -100,32 +100,32 @@ exec(
       },
     );
 
-    console.log('npm init -- done\n');
+    console.log('npm init 🎯🥳🎯🥳🎯🥳🎯🥳🎯🥳🎯🥳\n');
 
     // installing dependencies
-    console.log('Installing deps -- it might take a few minutes..');
+    console.log('Installing the 📦📦📦📦📦📦 -- hang tight.');
     const devDeps = getDeps(packageJson.devDependencies);
     const deps = getDeps(packageJson.dependencies);
     exec(
       `cd ${process.argv[2]} && npm i -D ${devDeps} && npm i -S ${deps}`,
       (npmErr, npmStdout, npmStderr) => {
         if (npmErr) {
-          console.error(`it's always npm, ain't it?
+          console.error(`💩💩💩💩💩💩💩💩💩💩
       ${npmErr}`);
           return;
         }
         console.log(npmStdout);
-        console.log('Dependencies installed');
+        console.log('Dependencies installed 🤪🤪🤪🤪🤪🤪🤪🤪');
 
-        console.log('Copying additional files..');
+        console.log('Copying additional files.. 📠📠📠📠📠📠📠📠📠');
         // copy additional source files
         fs
           .copy(path.join(__dirname, '../src'), `${process.argv[2]}/src`)
-          .then(() => console.log(`All done!\nYour project is now started into ${
+          .then(() => console.log(`All done!\nYour project is now ready to rock in ${
             process.argv[2]
-          } folder, refer to the README for the project structure.\nHappy Coding!`))
+          } folder, refer to the README for the project structure.\n👾💻👾💻👾💻👾💻👾💻 away!!`))
           .catch(err => console.error(err));
       },
     );
-  },
+  }
 );
