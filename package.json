@@ -1,6 +1,6 @@
 {
   "name": "pfreact-boiler",
-  "version": "0.0.91",
+  "version": "0.0.92",
   "description": "pfReact BoilerPlate",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,7 @@
     "start": "npm-run-all lint test dev"
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "./test/enzyme.setup.js"
+    "setupTestFrameworkScriptFile": "./tests/enzyme.setup.js"
   },
   "bin": {
     "pfreact-boiler": "./bin/creator.js"
