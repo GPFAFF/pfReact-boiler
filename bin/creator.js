@@ -13,7 +13,6 @@ const scripts = `"build": "webpack --config webpack.prod.js",
     "dev": "webpack-dev-server --config webpack.dev.js",
     "test": "jest ./test",
     "lint": "eslint src/**/*.js src/**/*.jsx",
-    "prepublish": "yarn run lint && yarn run test && yarn run build",
     "start": "npm-run-all lint test dev"`;
 
 const jestConfig = `"license": "ISC",
@@ -80,8 +79,6 @@ exec(
         .pipe(fs.createWriteStream(`${process.argv[2]}/${filesToCopy[i]}`));
     }
 
-    // npm will remove the .gitignore file when the package is installed, therefore it cannot be copied
-    // locally and needs to be downloaded.
     https.get(
       'https://raw.githubusercontent.com/gpfaff/pfreact-boiler/master/.gitignore',
       (res) => {
@@ -127,5 +124,5 @@ exec(
           .catch(err => console.error(err));
       },
     );
-  }
+  },
 );
