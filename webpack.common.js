@@ -1,4 +1,6 @@
+/* eslint-disable prop-types */
 const path = require('path');
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
@@ -18,6 +20,9 @@ module.exports = {
     }),
     new CleanWebpackPlugin(['dist']),
   ],
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   module: {
     rules: [
       {

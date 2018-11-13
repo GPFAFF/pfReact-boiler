@@ -3015,6 +3015,11 @@ eslint-config-airbnb@17.1.0:
     object.assign "^4.1.0"
     object.entries "^1.0.4"
 
+eslint-config-jest-enzyme@^7.0.1:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/eslint-config-jest-enzyme/-/eslint-config-jest-enzyme-7.0.1.tgz#fd4f7f5d613334561b4bf154470f5b3e8e90a856"
+  integrity sha512-IPuraGoQwLsuVdYNoHm+sIWWYkL8QP/wiDeypzAtbW9hX/tYcz9CFnxBC+4bxNt/1whiMP56sjWAOhHBzJjaTA==
+
 eslint-import-resolver-node@^0.3.1:
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/eslint-import-resolver-node/-/eslint-import-resolver-node-0.3.2.tgz#58f15fb839b8d0576ca980413476aab2472db66a"
