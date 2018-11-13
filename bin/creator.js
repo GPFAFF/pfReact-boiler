@@ -14,6 +14,18 @@ const scripts = `"build": "webpack --config webpack.prod.js",
     "test": "jest ./tests",
     "lint": "eslint src/**/*.js src/**/*.jsx",
     "start": "npm-run-all lint test dev"`;
+
+const jestConfig = `"license": "MIT",
+    "jest": {
+      "moduleFileExtensions": [
+        "js",
+        "jsx"
+      ],
+      "moduleDirectories": [
+        "node_modules"
+      ],
+      "setupTestFrameworkScriptFile": "./tests/enzyme.setup.js"
+    }`;
 /**
  * we pass the object key dependency || devdependency to this function
  * @param {object} deps object key that we want to extract
@@ -40,13 +52,15 @@ exec(
     ${initErr}`);
       return;
     }
+
     const packageJSON = `${process.argv[2]}/package.json`;
     // replace the default scripts, with the webpack scripts in package.json
     fs.readFile(packageJSON, (err, file) => {
       if (err) throw err;
       const data = file
         .toString()
-        .replace('"test": "echo \\"Error: no test specified\\" && exit 1"', scripts);
+        .replace('"test": "echo \\"Error: no test specified\\" && exit 1"', scripts)
+        .replace('"license": "MIT"', jestConfig);
       fs.writeFile(packageJSON, data, err2 => err2 || true);
     });
 
@@ -91,9 +105,9 @@ exec(
           return;
         }
         console.log(npmStdout);
-        console.log('Dependencies installed 🤪🤪🤪🤪🤪🤪🤪🤪');
+        console.log('Dependencies installed 🤪 🤪 🤪 🤪 🤪');
 
-        console.log('Copying additional files.. 📠📠📠📠📠📠📠📠📠');
+        console.log('Copying additional files.. 📠 📠 📠 📠 📠');
         // copy additional source files
         fs
           .copy(path.join(__dirname, '../src'), `${process.argv[2]}/src`)

@@ -4,16 +4,12 @@ import PropTypes from 'prop-types';
 const App = (props) => {
   const { header } = props;
   return (
-    <h1>{header}</h1>
+    <h1>pfReact Boiler</h1>
   );
 };
 
 App.propTypes = {
   header: PropTypes.string,
-};
-
-App.defaultProps = {
-  header: 'React Boiler',
 };
 
 export default App;

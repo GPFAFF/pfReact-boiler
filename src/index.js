@@ -6,4 +6,4 @@ import App from './components/App';
 
 import './styles/main.scss';
 
-ReactDOM.render(<App header="pfReact Boiler" />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
