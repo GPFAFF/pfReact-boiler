@@ -14,26 +14,6 @@ const scripts = `"build": "webpack --config webpack.prod.js",
     "test": "jest ./tests",
     "lint": "eslint src/**/*.js src/**/*.jsx",
     "start": "npm-run-all lint test dev"`;
-
-const jestConfig = `"license": "ISC",
-  "jest": {
-    "moduleFileExtensions": [
-      "js",
-      "jsx"
-    ],
-    "moduleDirectories": [
-      "node_modules"
-    ],
-    "setupFiles": [
-      "<rootDir>/src/tests/setup.js"
-    ],
-    "transform": {
-      "^.+\\\\.js$": "babel-jest",
-      "^.+\\\\.jsx$": "babel-jest",
-      "\\\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/tests/mocks/fileTransformer.js"
-    }
-  }`;
-
 /**
  * we pass the object key dependency || devdependency to this function
  * @param {object} deps object key that we want to extract
@@ -67,7 +47,6 @@ exec(
       const data = file
         .toString()
         .replace('"test": "echo \\"Error: no test specified\\" && exit 1"', scripts)
-        .replace('"license": "ISC"', jestConfig);
       fs.writeFile(packageJSON, data, err2 => err2 || true);
     });
 
