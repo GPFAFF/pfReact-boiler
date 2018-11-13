@@ -97,6 +97,7 @@ exec(
         // copy additional source files
         fs
           .copy(path.join(__dirname, '../src'), `${process.argv[2]}/src`)
+          .then(() => console.log('Copied src'))
           .copy(path.join(__dirname, '../tests'), `${process.argv[2]}/tests`)
           .then(() => console.log(`All done!\nYour project is now ready to rock in ${
             process.argv[2]
