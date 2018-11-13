@@ -8,7 +8,6 @@
     "dev": "webpack-dev-server --config webpack.dev.js",
     "test": "jest ./tests",
     "lint": "eslint src/**/*.js src/**/*.jsx",
-    "prepublish": "yarn run lint && yarn run test && yarn run build",
     "start": "npm-run-all lint test dev"
   },
   "jest": {
