@@ -47,16 +47,16 @@
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.10"
-  },
-  "dependencies": {
+    "webpack-dev-server": "^3.1.10",
     "clean-webpack-plugin": "^1.0.0",
     "fs-extra": "^7.0.1",
+    "webpack": "^4.25.1",
+    "webpack-merge": "^4.1.4"
+  },
+  "dependencies": {
     "html-webpack-plugin": "^3.2.0",
     "prop-types": "^15.6.2",
     "react": "^16.6.1",
-    "react-dom": "^16.6.1",
-    "webpack": "^4.25.1",
-    "webpack-merge": "^4.1.4"
+    "react-dom": "^16.6.1"
   }
 }
