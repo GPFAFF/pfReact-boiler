@@ -29,14 +29,14 @@ const getDeps = deps => Object.entries(deps)
   // exclude the plugin only used in this file, nor relevant to the boilerplate
   .replace(/fs-extra[^\s]+/g, '');
 
-console.log('⚡️⚡️⚡️⚡️⚡️ Initializing project ⚡️⚡️⚡️⚡️⚡️');
+console.log('⚡️ ⚡️ ⚡️ ⚡️ ⚡️ Initializing project ⚡️ ⚡️ ⚡️ ⚡️ ⚡️');
 
 // create folder and initialize npm
 exec(
   `mkdir ${process.argv[2]} && cd ${process.argv[2]} && npm init -f`,
   (initErr, initStdout, initStderr) => {
     if (initErr) {
-      console.error(`💩💩💩💩💩💩💩💩💩💩:
+      console.error(`💩 💩 💩 💩 💩 error in:
     ${initErr}`);
       return;
     }
@@ -76,10 +76,10 @@ exec(
       },
     );
 
-    console.log('npm init 🎯🥳🎯🥳🎯🥳🎯🥳🎯🥳🎯🥳\n');
+    console.log('npm init 🎯 🎯 🎯 🎯 🎯 🎯 \n');
 
     // installing dependencies
-    console.log('Installing the 📦📦📦📦📦📦 -- hang tight.');
+    console.log('Installing the 📦 📦 📦 📦 📦 📦\'s -- grab a 🍺 or 🍷');
     const devDeps = getDeps(packageJson.devDependencies);
     const deps = getDeps(packageJson.dependencies);
     exec(
@@ -97,9 +97,11 @@ exec(
         // copy additional source files
         fs
           .copy(path.join(__dirname, '../src'), `${process.argv[2]}/src`)
-          .then(() => console.log(`All done!\nYour project is now ready to rock in ${
-            process.argv[2]
-          } folder.\n👾💻👾💻👾💻👾💻👾💻 away!!`))
+          .then(() => console.log(`src copied in the ${process.argv[2]} folder.\n 💻 💻 💻 💻 💻 away!!`))
+          .catch(err => console.error(err));
+        fs
+          .copy(path.join(__dirname, '../tests'), `${process.argv[2]}/tests`)
+          .then(() => console.log(`tests copied in the ${process.argv[2]} folder 👾 👾 👾 👾 👾\nYour project is now ready to rock in!`))
           .catch(err => console.error(err));
       },
     );
