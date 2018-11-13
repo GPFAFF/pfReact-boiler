@@ -46,7 +46,7 @@ exec(
       if (err) throw err;
       const data = file
         .toString()
-        .replace('"test": "echo \\"Error: no test specified\\" && exit 1"', scripts)
+        .replace('"test": "echo \\"Error: no test specified\\" && exit 1"', scripts);
       fs.writeFile(packageJSON, data, err2 => err2 || true);
     });
 
@@ -97,6 +97,7 @@ exec(
         // copy additional source files
         fs
           .copy(path.join(__dirname, '../src'), `${process.argv[2]}/src`)
+          .copy(path.join(__dirname, '../tests'), `${process.argv[2]}/tests`)
           .then(() => console.log(`All done!\nYour project is now ready to rock in ${
             process.argv[2]
           } folder.\n👾💻👾💻👾💻👾💻👾💻 away!!`))
